@@ -33,14 +33,18 @@ class MainActivity : AppCompatActivity() {
         itemTouchHelper.attachToRecyclerView(recyclerView)
 
         val cats = listOf(
-            CatModel(Gender.Male, CatBreed.BalineseJavanese,"Ucup","Suka ngintip tetangga dari jendela, dikira satpam komplek","https://cdn2.thecatapi.com/images/7dj.jpg"),
-            CatModel(Gender.Female, CatBreed.ExoticShorthair,"Mbak Iyah","Kerjanya tidur, bangun cuma kalo dengar suara plastik makanan","https://cdn2.thecatapi.com/images/egv.jpg"),
-            CatModel(Gender.Unknown, CatBreed.AmericanCurl,"Bang Kumis","Kepo level dewa, sampai masuk ember cucian tetangga","https://cdn2.thecatapi.com/images/bar.jpg"),
-            CatModel(Gender.Female, CatBreed.BalineseJavanese,"Siti","Mainannya cuma karet gelang, padahal beli mainan mahal nggak dipeduliin","https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg"),
-            CatModel(Gender.Male, CatBreed.ExoticShorthair,"Jono","Hobi tidur di keyboard, bikin skripsi majikan auto berantakan","https://cdn2.thecatapi.com/images/5j2.jpg"),
-            CatModel(Gender.Female, CatBreed.AmericanCurl,"Mpok Lela","Gayanya sok luwes loncat-loncat, ujung-ujungnya jatuh juga","https://cdn2.thecatapi.com/images/abc.jpg"),
-            CatModel(Gender.Unknown, CatBreed.ExoticShorthair,"Si Item","Muncul tiba-tiba di malam hari, bikin jantung copot","https://cdn2.thecatapi.com/images/def.jpg"),
+            CatModel(Gender.Male, CatBreed.BalineseJavanese, "Ucup", "Suka ngintip tetangga dari jendela, dikira satpam komplek", "https://cdn2.thecatapi.com/images/7dj.jpg"),
+            CatModel(Gender.Female, CatBreed.ExoticShorthair, "Mbak Iyah", "Kerjanya tidur, bangun cuma kalo dengar suara plastik makanan", "https://cdn2.thecatapi.com/images/egv.jpg"),
+            CatModel(Gender.Unknown, CatBreed.AmericanCurl, "Bang Kumis", "Kepo level dewa, sampai masuk ember cucian tetangga", "https://cdn2.thecatapi.com/images/bar.jpg"),
+            CatModel(Gender.Female, CatBreed.BalineseJavanese, "Siti", "Mainannya karet gelang, beli mainan mahal nggak dipeduliin", "https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg"),
+            CatModel(Gender.Male, CatBreed.ExoticShorthair, "Jono", "Tertidur di keyboard, skripsi majikan kacau", "https://cdn2.thecatapi.com/images/5j2.jpg"),
+            CatModel(Gender.Female, CatBreed.AmericanCurl, "Mpok Lela", "Gayanya sok luwes loncat, ujungnya sering jatuh juga", "https://cdn2.thecatapi.com/images/abc.jpg"),
+            CatModel(Gender.Unknown, CatBreed.ExoticShorthair, "Si Item", "Muncul di malam hari, bikin jantung kopot", "https://cdn2.thecatapi.com/images/def.jpg"),
+            CatModel(Gender.Male, CatBreed.BalineseJavanese, "Bambang", "Ngaku singa, tapi takut sapu", "https://cdn2.thecatapi.com/images/7ok.jpg"),
+            CatModel(Gender.Female, CatBreed.ExoticShorthair, "Neng Wati", "Ngeongnya kayak pedagang bakso lewat", "https://cdn2.thecatapi.com/images/cfc.jpg"),
+            CatModel(Gender.Male, CatBreed.AmericanCurl, "Pak RT", "Nongkrong di teras kayak jaga kampung", "https://cdn2.thecatapi.com/images/2n3.jpg")
         )
+
 
         catAdapter.setData(cats)
     }
