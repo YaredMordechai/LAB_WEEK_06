@@ -3,6 +3,7 @@ package com.example.lab_week_06
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lab_week_06.model.CatBreed
@@ -25,28 +26,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // inisialisasi RecyclerView
         recyclerView.adapter = catAdapter
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        // isi data (minimal 10 item sesuai assignment)
+        val itemTouchHelper = ItemTouchHelper(catAdapter.swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
         val cats = listOf(
-            CatModel(Gender.Male, CatBreed.BalineseJavanese,"Fred","Silent and deadly","https://cdn2.thecatapi.com/images/7dj.jpg"),
-            CatModel(Gender.Female, CatBreed.ExoticShorthair,"Wilma","Cuddly assassin","https://cdn2.thecatapi.com/images/egv.jpg"),
-            CatModel(Gender.Unknown, CatBreed.AmericanCurl,"Curious George","Award winning investigator","https://cdn2.thecatapi.com/images/bar.jpg"),
-            CatModel(Gender.Female, CatBreed.BalineseJavanese,"Luna","Playful and shy","https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg"),
-            CatModel(Gender.Male, CatBreed.ExoticShorthair,"Milo","Loves naps","https://cdn2.thecatapi.com/images/5j2.jpg"),
-            CatModel(Gender.Female, CatBreed.AmericanCurl,"Bella","Kneads on blankets","https://cdn2.thecatapi.com/images/abc.jpg"),
-            CatModel(Gender.Male, CatBreed.BalineseJavanese,"Oscar","Window watcher","https://cdn2.thecatapi.com/images/xyz.jpg"),
-            CatModel(Gender.Unknown, CatBreed.ExoticShorthair,"Shadow","Stealth master","https://cdn2.thecatapi.com/images/def.jpg"),
-            CatModel(Gender.Female, CatBreed.AmericanCurl,"Nala","Curious about everything","https://cdn2.thecatapi.com/images/ghi.jpg"),
-            CatModel(Gender.Male, CatBreed.BalineseJavanese,"Simba","Brave little cat","https://cdn2.thecatapi.com/images/jkl.jpg")
+            CatModel(Gender.Male, CatBreed.BalineseJavanese,"Ucup","Suka ngintip tetangga dari jendela, dikira satpam komplek","https://cdn2.thecatapi.com/images/7dj.jpg"),
+            CatModel(Gender.Female, CatBreed.ExoticShorthair,"Mbak Iyah","Kerjanya tidur, bangun cuma kalo dengar suara plastik makanan","https://cdn2.thecatapi.com/images/egv.jpg"),
+            CatModel(Gender.Unknown, CatBreed.AmericanCurl,"Bang Kumis","Kepo level dewa, sampai masuk ember cucian tetangga","https://cdn2.thecatapi.com/images/bar.jpg"),
+            CatModel(Gender.Female, CatBreed.BalineseJavanese,"Siti","Mainannya cuma karet gelang, padahal beli mainan mahal nggak dipeduliin","https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg"),
+            CatModel(Gender.Male, CatBreed.ExoticShorthair,"Jono","Hobi tidur di keyboard, bikin skripsi majikan auto berantakan","https://cdn2.thecatapi.com/images/5j2.jpg"),
+            CatModel(Gender.Female, CatBreed.AmericanCurl,"Mpok Lela","Gayanya sok luwes loncat-loncat, ujung-ujungnya jatuh juga","https://cdn2.thecatapi.com/images/abc.jpg"),
+            CatModel(Gender.Unknown, CatBreed.ExoticShorthair,"Si Item","Muncul tiba-tiba di malam hari, bikin jantung copot","https://cdn2.thecatapi.com/images/def.jpg"),
         )
 
         catAdapter.setData(cats)
     }
 
-    // fungsi untuk menampilkan dialog saat item diklik
     private fun showSelectionDialog(cat: CatModel) {
         AlertDialog.Builder(this)
             .setTitle("Cat Selected")
