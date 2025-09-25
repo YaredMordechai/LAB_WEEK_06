@@ -13,22 +13,23 @@ class MainActivity : AppCompatActivity() {
 
     private val recyclerView: RecyclerView by lazy { findViewById(R.id.recycler_view) }
 
-    // adapter untuk RecyclerView
     private val catAdapter by lazy {
-        CatAdapter(layoutInflater, GlideImageLoader(this)) { cat ->
-            showSelectionDialog(cat)
-        }
+        CatAdapter(layoutInflater, GlideImageLoader(this), object : CatAdapter.OnClickListener {
+            override fun onItemClick(cat: CatModel) {
+                showSelectionDialog(cat)
+            }
+        })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // set RecyclerView
+        // inisialisasi RecyclerView
         recyclerView.adapter = catAdapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        // isi data dummy kucing
+        // isi data (minimal 10 item sesuai assignment)
         val cats = listOf(
             CatModel(Gender.Male, CatBreed.BalineseJavanese,"Fred","Silent and deadly","https://cdn2.thecatapi.com/images/7dj.jpg"),
             CatModel(Gender.Female, CatBreed.ExoticShorthair,"Wilma","Cuddly assassin","https://cdn2.thecatapi.com/images/egv.jpg"),
@@ -42,11 +43,10 @@ class MainActivity : AppCompatActivity() {
             CatModel(Gender.Male, CatBreed.BalineseJavanese,"Simba","Brave little cat","https://cdn2.thecatapi.com/images/jkl.jpg")
         )
 
-        // kirim data ke adapter
         catAdapter.setData(cats)
     }
 
-    // dialog saat item diklik
+    // fungsi untuk menampilkan dialog saat item diklik
     private fun showSelectionDialog(cat: CatModel) {
         AlertDialog.Builder(this)
             .setTitle("Cat Selected")
